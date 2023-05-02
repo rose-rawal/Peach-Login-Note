@@ -1,12 +1,14 @@
 import React, { useContext, useState } from 'react'
 
-
+import Error from '../../pageinfo/Error';
 const Input = ({
     name,type,func,set
 }) => {
   const [abc,setAbc]=useState('0');
+  
   return (
-    <div className='pl-5 margin-auto pt-2 w-96'>
+    <div className='pl-5 margin-auto pt-2 w-96 setting'>
+      
     <label htmlFor={name} className='pr-5'>{name}</label>
     <input type={type} id={name} value={func} 
     onChange={(e)=>{ 
@@ -14,6 +16,7 @@ const Input = ({
        set((prev)=>{return {...prev, [name]: e.target.value}});
         }} 
         className='border-black border-2 rounded-lg float-right'/>
+   
     </div>
   )
 }
