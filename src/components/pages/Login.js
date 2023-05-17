@@ -1,4 +1,4 @@
-import React, { useContext,useState } from 'react'
+import React, { useContext,useState,useEffect } from 'react'
 import Input from './formdetails/Input'
 import Button from './formdetails/Button'
 import context from '../context/maincontext'
@@ -35,12 +35,23 @@ const Login = () => {
   })
     },2000)
     setUsers(n=>{
+      if(n===null)
+      {
+        return user;
+      }
+      else{
       const save=[...n,user]
       
-      return save
+      return save}
     })
-    
+      
+
+    console.log(users)
   }
+  // useEffect(()=>{
+  //   window.localStorage.removeItem("user");
+  //   window.localStorage.setItem("user",JSON.stringify(users));
+  // },[users])
   const handleLogin=(e)=>{
     e.preventDefault();
     

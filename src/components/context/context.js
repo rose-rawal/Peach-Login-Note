@@ -1,13 +1,16 @@
 import context from "./maincontext";
-import React from 'react'
+import React, { useEffect } from 'react'
 import {useState} from 'react'
 const Context = ({children}) => {
     const [loggedIn,setLoggedIn]=useState(false)
     const [users,setUsers]=useState([{
-      Name:'1',
-      Email:'1',
-      Password:'1'
+      Name:'Rose Rawal',
+      Password: 'admin1234',
+      Email: 'rooserwl@gmail.com'
     }])
+    
+    
+    
     const checkSignUp=({Name,Password,Email})=>{
       const response={err:'Success',text:'Success'};
       const pattern=/^\w+@[a-zA-Z_]+?\.[a-zA-Z]{2,3}$/
@@ -41,7 +44,10 @@ const Context = ({children}) => {
         const response={};
         let flag=0;
         users.map((n)=>{
-          if(n.Name===Name && n.Password===Password)
+          if(n===null){
+            
+          }
+          else if(n.Name===Name && n.Password===Password)
           {
             flag=1
             setLoggedIn(true)
