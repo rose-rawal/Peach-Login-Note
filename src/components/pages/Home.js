@@ -4,25 +4,37 @@ import Input from './formdetails/Input'
 import contex from '../context/datacontext'
 
 const Home = () => {
-  const {dat}=useContext(contex)
-  console.log(dat)
-  const [data,setData]=useState({
-    name:'',
-    comment:''
-  })
-  const handleChange=(what,change)=>{
-    console.log(what,change)
-      setData({...data,[what]:change})
-    
-    console.log(data)
+  const [message,setMessage]=useState();
+  const [allMessage,setAllMessage]=useState([{
+    message:'',author:'start'
+  }]); 
+  const handleClick=(e)=>{
+    e.preventDefault();
+    setAllMessage(msg=>{
+      return [...msg,{message,author:"user"}]
+    })
+    console.log(allMessage)
   }
   return (
     <PageInfo>
-      <form className='m-auto block mx-10 mt-10'>
-        <label htmlFor="name" className='my-5'>Name:</label><br /><input type="text" className='border-2 border-black rounded mb-5' value={data.name} onChange={(e)=>{handleChange("name",e.target.value)}}/>
-        <label htmlFor="comment text-center inline" className='block'>Comment:</label><textarea id="comment" className='border-2 border-black rounded w-7/12 h-40' value={data.comment} onChange={(e)=>{handleChange("comment",e.target.value)}}></textarea>
+      <h1 className='text-center'>ChatBox</h1><br />
+      <div className='flex flex-col items-center'>
+        <div className='border-2 w-2/3 h-72 text-center overflow-auto flex flex-col'>
+        {allMessage[allMessage.length-1].message===''?"Empty message":allMessage.map(msg=>{
+          return(
+            <div key={Math.random()} className={'w-2/3 mb-2 p-2 rounded-md mx-2 '+ (msg.author==='user'?"text-start bg-red-200":msg.author!=='start'?"text-end self-end bg-amber-200":'p-0')}>{msg.message}</div>
+        )}
+        )}
 
-      </form>
+
+        </div>
+        <div className=''>
+          <input type="text" className='border-2' value={message} onChange={(e)=>{
+            setMessage(e.target.value);
+            console.log(message);
+          }}/><button onClick={handleClick}>Send</button>
+        </div>
+      </div>
     </PageInfo>
   )
 }
