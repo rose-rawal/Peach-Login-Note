@@ -5,10 +5,11 @@ import contex from '../context/datacontext'
 import useMessage from '../../hooks/useMessage'
 import context from '../context/maincontext'
 
-
 const Home = () => {
+  
   const [message,setMessage]=useState();
   const {getAll,putUser}=useMessage();
+  
 const {currentUser}=useContext(context);
 const {setAllMessage,allMessage}=useContext(contex);
 useEffect(()=>{
@@ -35,6 +36,12 @@ useEffect(()=>{
     // console.log(allMessage)
   
   }
+  
+  
+
+
+
+
   return (
     <PageInfo>
       <h1 className='text-center'>ChatBox</h1><br />

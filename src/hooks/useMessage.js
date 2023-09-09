@@ -7,14 +7,16 @@ const useMessage=()=>{
     useEffect(()=>{
         const getz=async()=>{
         const res=await getAllUser();
-        console.log(res);
+        // console.log(res);
         // setMsg(res);
           setAllMessage(n=>{
-        return [...n,...res];
+        return [...res];
     })
-        console.log("hello")
+        console.log("waiting for message")
     }
-    getz()
+    setInterval(()=>{
+        getz()
+    },3000)
     },[])
     // useEffect(()=>{
        
