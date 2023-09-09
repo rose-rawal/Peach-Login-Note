@@ -1,5 +1,5 @@
 import { useContext, useEffect, useState } from "react";
-import getAllUser from "../api/messages";
+import {getAllUser,addUser} from "../api/messages";
 import contex from "../components/context/datacontext";
 const useMessage=()=>{
     const {allMessage,setAllMessage}=useContext(contex);
@@ -23,7 +23,10 @@ const useMessage=()=>{
             return msg;
     }
     getAll();
+    const putUser=async(val)=>{
+        const res=await addUser(val);
+    }
    
-    return {getAll}
+    return {getAll,putUser}
 }
 export default useMessage

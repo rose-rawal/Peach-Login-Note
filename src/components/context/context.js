@@ -4,10 +4,20 @@ import {useState} from 'react'
 const Context = ({children}) => {
     const [loggedIn,setLoggedIn]=useState(false)
     const [users,setUsers]=useState([{
-      Name:'Rose Rawal',
-      Password: 'admin1234',
+      Name:'Rose',
+      Password: 'rose1234',
       Email: 'rooserwl@gmail.com'
+    },{
+      Name:'Admin',
+      Password: 'admin1234',
+      Email: 'adminrwl@gmail.com'
+    
     }])
+    const [currentUser,setCurrentUser]=useState({
+      Name:'',
+      Password:'',
+      Email:''
+    })
     
     
     
@@ -43,17 +53,18 @@ const Context = ({children}) => {
     const checkLogin=(Name,Password)=>{
         const response={};
         let flag=0;
-        setLoggedIn(true)
-        // users.map((n)=>{
-        //   if(n===null){
+        // setLoggedIn(true)
+        users.map((n)=>{
+          if(n===null){
             
-        //   }
-        //   else if(n.Name===Name && n.Password===Password)
-        //   {
-        //     flag=1
-        //     setLoggedIn(true)
-        //   }
-        // })
+          }
+          else if(n.Name===Name && n.Password===Password)
+          {
+            flag=1
+            setLoggedIn(true)
+            setCurrentUser(n)
+          }
+        })
         if(flag===0)
           {
             response.err="No Account"
@@ -63,7 +74,7 @@ const Context = ({children}) => {
     }
   return (
     <context.Provider value={{loggedIn,setLoggedIn,
-    setUsers,users,checkSignUp,checkLogin
+    setUsers,users,checkSignUp,checkLogin,currentUser,setCurrentUser
     }}>
         {children}
     </context.Provider>

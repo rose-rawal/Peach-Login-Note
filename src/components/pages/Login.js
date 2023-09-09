@@ -44,14 +44,10 @@ const Login = () => {
       
       return save}
     })
-      
-
     console.log(users)
+    
   }
-  // useEffect(()=>{
-  //   window.localStorage.removeItem("user");
-  //   window.localStorage.setItem("user",JSON.stringify(users));
-  // },[users])
+  
   const handleLogin=(e)=>{
     e.preventDefault();
     
