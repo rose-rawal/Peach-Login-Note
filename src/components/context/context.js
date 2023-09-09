@@ -43,16 +43,17 @@ const Context = ({children}) => {
     const checkLogin=(Name,Password)=>{
         const response={};
         let flag=0;
-        users.map((n)=>{
-          if(n===null){
+        setLoggedIn(true)
+        // users.map((n)=>{
+        //   if(n===null){
             
-          }
-          else if(n.Name===Name && n.Password===Password)
-          {
-            flag=1
-            setLoggedIn(true)
-          }
-        })
+        //   }
+        //   else if(n.Name===Name && n.Password===Password)
+        //   {
+        //     flag=1
+        //     setLoggedIn(true)
+        //   }
+        // })
         if(flag===0)
           {
             response.err="No Account"

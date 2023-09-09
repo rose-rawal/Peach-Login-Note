@@ -1,19 +1,37 @@
-import React, { useState,useContext } from 'react'
+import React, { useState,useContext, useEffect } from 'react'
 import PageInfo from '../pageinfo'
 import Input from './formdetails/Input'
 import contex from '../context/datacontext'
+import useMessage from '../../hooks/useMessage'
+
 
 const Home = () => {
   const [message,setMessage]=useState();
-  const [allMessage,setAllMessage]=useState([{
-    message:'',author:'start'
-  }]); 
+  const {getAll}=useMessage();
+
+const {setAllMessage,allMessage}=useContext(contex);
+useEffect(()=>{
+  // getAll();
+  
+  const happen=async()=>{
+    await getAll();
+    // !abc[0]?setAllMessage(msg=>{
+    //   return [...msg,...data]
+    // }):console.log("not ready");
+    
+  }
+    happen();
+  
+},[])
+
+
   const handleClick=(e)=>{
     e.preventDefault();
     setAllMessage(msg=>{
       return [...msg,{message,author:"user"}]
     })
-    console.log(allMessage)
+    // console.log(allMessage)
+  
   }
   return (
     <PageInfo>
@@ -28,6 +46,7 @@ const Home = () => {
 
 
         </div>
+        
         <div className=''>
           <input type="text" className='border-2' value={message} onChange={(e)=>{
             setMessage(e.target.value);
