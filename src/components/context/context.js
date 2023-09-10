@@ -1,5 +1,5 @@
 import context from "./maincontext";
-import React, { useEffect } from 'react'
+import React from 'react'
 import {useState} from 'react'
 const Context = ({children}) => {
     const [loggedIn,setLoggedIn]=useState(false)

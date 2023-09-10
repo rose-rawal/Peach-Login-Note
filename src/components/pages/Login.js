@@ -1,10 +1,10 @@
-import React, { useContext,useState,useEffect } from 'react'
+import React, { useContext,useState } from 'react'
 import Input from './formdetails/Input'
 import Button from './formdetails/Button'
 import context from '../context/maincontext'
 import Error from '../pageinfo/Error'
 const Login = () => {
-  const {setUsers,users,setLoggedIn,checkSignUp,checkLogin}=useContext(context);
+  const {setUsers,users,checkSignUp,checkLogin}=useContext(context);
   const [loguser,setLoguser]=useState({
     Name:'',
     Password:''

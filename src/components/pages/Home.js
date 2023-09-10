@@ -1,6 +1,6 @@
 import React, { useState,useContext, useEffect } from 'react'
 import PageInfo from '../pageinfo'
-import Input from './formdetails/Input'
+
 import contex from '../context/datacontext'
 import useMessage from '../../hooks/useMessage'
 import context from '../context/maincontext'

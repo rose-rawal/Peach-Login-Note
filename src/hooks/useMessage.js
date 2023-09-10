@@ -2,8 +2,8 @@ import { useContext, useEffect, useState } from "react";
 import {getAllUser,addUser} from "../api/messages";
 import contex from "../components/context/datacontext";
 const useMessage=()=>{
-    const {allMessage,setAllMessage}=useContext(contex);
-    const [msg,setMsg]=useState({})
+    const {setAllMessage}=useContext(contex);
+    // const [msg,setMsg]=useState({})
     useEffect(()=>{
         const getz=async()=>{
         const res=await getAllUser();
@@ -22,11 +22,12 @@ const useMessage=()=>{
        
         // },[msg])
     const getAll=async()=>{
-            return msg;
+            return 0;
     }
     getAll();
     const putUser=async(val)=>{
         const res=await addUser(val);
+        return res;
     }
    
     return {getAll,putUser}
