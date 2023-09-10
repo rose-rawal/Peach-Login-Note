@@ -1,4 +1,4 @@
-import { useContext, useEffect, useState } from "react";
+import { useContext, useEffect } from "react";
 import {getAllUser,addUser} from "../api/messages";
 import contex from "../components/context/datacontext";
 const useMessage=()=>{
@@ -17,7 +17,7 @@ const useMessage=()=>{
     setInterval(()=>{
         getz()
     },3000)
-    },[])
+    },[setAllMessage])
     // useEffect(()=>{
        
         // },[msg])

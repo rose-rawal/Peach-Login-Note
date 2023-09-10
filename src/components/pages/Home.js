@@ -24,7 +24,7 @@ useEffect(()=>{
   }
     happen();
   
-},[])
+},[getAll])
 
 
   const handleClick=(e)=>{

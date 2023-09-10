@@ -64,6 +64,7 @@ const Context = ({children}) => {
             setLoggedIn(true)
             setCurrentUser(n)
           }
+          return 0;
         })
         if(flag===0)
           {
