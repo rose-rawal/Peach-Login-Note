@@ -67,7 +67,7 @@ const Login = () => {
   
   return (
     <div >
-      <h1 className='flex justify-center text-5xl my-10'>Login</h1>
+      {login?<h1 className='flex justify-center text-5xl my-10'>Login</h1>:<h1 className='flex justify-center text-5xl my-10'>Signup</h1>}
       <span className='flex justify-center text-red-400 '>{error.text}</span>
       <span className='flex justify-center text-red-400 '>{msg.text}</span>
         {login && <form action="get" className='pt-5 '>

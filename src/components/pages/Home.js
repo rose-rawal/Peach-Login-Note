@@ -45,22 +45,23 @@ useEffect(()=>{
   return (
     <PageInfo>
       <h1 className='text-center text-2xl font-mono'>MyChat : {currentUser.Name }</h1><br />
-      <div className='flex flex-col items-center'>
-        <div className='border-2 w-2/3 h-72 text-center overflow-auto flex flex-col'>
+      <div className='flex flex-col items-center h-screen'>
+        <div className='flex-grow border-2 sm:w-full md:w-2/3 h-72 text-center overflow-auto flex flex-col change'>
+        <div className='pt-5'></div>
         {allMessage[allMessage.length-1].message===''?"Empty message":allMessage.map(msg=>{
           return(
-            <div key={Math.random()} className={'w-2/3 mb-2 p-2 rounded-md mx-2 '+ (msg.author===currentUser.Name?"text-start bg-red-200":msg.author!=='start'?"text-end self-end bg-amber-200":'p-0')}>{msg.message}</div>
+            <div key={Math.random()} className={' mb-2 p-2 px-5 rounded-md mx-2 '+ (msg.author===currentUser.Name?"text-end self-end bg-amber-200":msg.author!=='start'?"text-start self-start bg-red-200":'p-0')}>{msg.message}</div>
         )}
         )}
 
 
         </div>
         
-        <div className=''>
-          <input type="text" className='border-2' value={message} onChange={(e)=>{
+        <div className='flex justify-between sm:w-full md:w-2/3 change'>
+          <input type="text" className='flex-grow border-2 p-2' value={message} onChange={(e)=>{
             setMessage(e.target.value);
             console.log(message);
-          }}/><button onClick={handleClick}>Send</button>
+          }}/><button className='py-2 px-5 bg-slate-500 text-white' onClick={handleClick}>Send</button>
         </div>
       </div>
     </PageInfo>
