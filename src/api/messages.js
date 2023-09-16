@@ -1,12 +1,12 @@
 import axiosInstance from "./axiosInstance";
-const getAllUser=async ()=>{
-    const users=await axiosInstance.get('allUser');
+const getAllMessage=async ()=>{
+    const users=await axiosInstance.get('allMessage');
     return users.data;
 }
-const addUser=async({message,author})=>{
-    const users =await axiosInstance.post('addUser',{
+const addMessage=async({message,author})=>{
+    const users =await axiosInstance.post('addMessage',{
         message,author
     })
     return users.data;
 }
-export { getAllUser,addUser};
+export { getAllMessage,addMessage};

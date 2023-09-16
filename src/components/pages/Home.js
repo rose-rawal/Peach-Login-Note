@@ -6,7 +6,7 @@ import useMessage from '../../hooks/useMessage'
 import context from '../context/maincontext'
 
 const Home = () => {
-  
+ 
   const [message,setMessage]=useState();
   const {getAll,putUser}=useMessage();
   
@@ -44,7 +44,7 @@ useEffect(()=>{
 
   return (
     <PageInfo>
-      <h1 className='text-center'>ChatBox</h1><br />
+      <h1 className='text-center text-2xl font-mono'>MyChat : {currentUser.Name }</h1><br />
       <div className='flex flex-col items-center'>
         <div className='border-2 w-2/3 h-72 text-center overflow-auto flex flex-col'>
         {allMessage[allMessage.length-1].message===''?"Empty message":allMessage.map(msg=>{

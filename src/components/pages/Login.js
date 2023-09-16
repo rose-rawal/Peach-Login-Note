@@ -3,12 +3,14 @@ import Input from './formdetails/Input'
 import Button from './formdetails/Button'
 import context from '../context/maincontext'
 import Error from '../pageinfo/Error'
+import useUser from '../../hooks/useUser'
 const Login = () => {
   const {setUsers,users,checkSignUp,checkLogin}=useContext(context);
   const [loguser,setLoguser]=useState({
     Name:'',
     Password:''
   })
+   const {addUsers}=useUser();
   const [login,setLogin]=useState(true)
   const [error,setError]=useState({})
   const [user,setUser]=useState({
@@ -26,6 +28,7 @@ const Login = () => {
     if(abc.text==="Success")
     {
       setLogin(prev=>!prev)
+      addUsers(user);
     }
     setMsg({...abc})
     setTimeout(()=>{
@@ -64,7 +67,7 @@ const Login = () => {
   
   return (
     <div >
-      <h1 className='flex justify-center text-5xl my-10'>Authentication</h1>
+      <h1 className='flex justify-center text-5xl my-10'>Login</h1>
       <span className='flex justify-center text-red-400 '>{error.text}</span>
       <span className='flex justify-center text-red-400 '>{msg.text}</span>
         {login && <form action="get" className='pt-5 '>

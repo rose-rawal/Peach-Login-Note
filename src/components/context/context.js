@@ -3,16 +3,7 @@ import React from 'react'
 import {useState} from 'react'
 const Context = ({children}) => {
     const [loggedIn,setLoggedIn]=useState(false)
-    const [users,setUsers]=useState([{
-      Name:'Rose',
-      Password: 'rose1234',
-      Email: 'rooserwl@gmail.com'
-    },{
-      Name:'Admin',
-      Password: 'admin1234',
-      Email: 'adminrwl@gmail.com'
-    
-    }])
+    const [users,setUsers]=useState([])
     const [currentUser,setCurrentUser]=useState({
       Name:'',
       Password:'',
