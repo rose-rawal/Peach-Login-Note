@@ -1,5 +1,45 @@
-@media (min-width:'700px'){
+@media (max-width:640px){
     .change{
         width:100%;
     }
+    .nomarg{
+        margin-bottom: 0px !important;
+    }
+    .toggleBar{
+        display: block !important;
+        z-index: 1 !important;
+    }
+        .navcontrol {
+            flex-direction: column;
+            position: absolute;
+            background-color: black;
+            right: 0;
+            top: 0;
+            padding-top: 90px;
+            height: 100vh;
+            
+        }
+        .navcontrol li{
+            margin-bottom: 20px;
+        }
+}
+
+.toggleBar{
+    display: none;
+    position: absolute;
+    top: 30px;
+    right:20px;
+}
+.bar{
+    width: 35px;
+    margin-bottom: 10px;
+    height: 3px;
+    background-color: #fff;
+    
+}
+.togtrue{
+    display: block;
+}
+.togfalse{
+    display: none !important;
 }

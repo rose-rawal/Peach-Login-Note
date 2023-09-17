@@ -6,7 +6,7 @@ const PageInfo = ({children}) => {
     const {loggedIn}=useContext(context);
     
   return (
-    <div>
+    <div className='h-screen flex flex-col'>
     <Nav/>
     {loggedIn?children:<Login/>}
     </div>
