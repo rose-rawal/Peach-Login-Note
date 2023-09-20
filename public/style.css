@@ -22,6 +22,25 @@
         .navcontrol li{
             margin-bottom: 20px;
         }
+    .break{
+        display: block;
+    }
+    .fix_width{
+        width: 60%;
+    }
+    .not_Center{
+        justify-content: flex-start !important;
+        padding-left: 40px;
+        
+        width: 200px !important;
+        
+    }
+    
+    .flexing{
+        display: flex;
+        flex-direction: column;
+        
+    }
 }
 
 .toggleBar{
