@@ -41,6 +41,13 @@
         flex-direction: column;
         
     }
+    .togtrue {
+        display: block;
+    }
+    
+    .togfalse {
+        display: none !important;
+    }
 }
 
 .toggleBar{
@@ -55,10 +62,4 @@
     height: 3px;
     background-color: #fff;
     
-}
-.togtrue{
-    display: block;
-}
-.togfalse{
-    display: none !important;
 }

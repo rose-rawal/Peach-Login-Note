@@ -44,7 +44,7 @@ useEffect(()=>{
 
   return (
     <PageInfo>
-      <h1 className='text-center text-2xl font-mono'>MyChat : {currentUser.Name }</h1><br />
+      <h1 className='text-center text-2xl font-mono font-bold'>Anonymous Chat Room : {currentUser.Name }</h1><br />
       <div className='flex flex-col items-center flex-grow w-full'>
         <div className='flex-grow border-2 md:w-2/3 sm:w-full h-72 text-center overflow-auto flex flex-col change'>
         <div className='pt-5'></div>
