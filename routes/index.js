@@ -51,10 +51,6 @@ router.get("/allUser", seeAllUser);
 async function addUser(req, res) {
   try {
     const { Name, Email, Password } = req.body;
-    const user = userSchema.findOne({ Name });
-    if (user) {
-      return res.json({ message: "Already a user Name to be unique" });
-    }
     const hash = await bcrypt.hash(Password, 10);
     const added = await userSchema.create({ Name, Email, Password: hash });
     return res.json(added);
