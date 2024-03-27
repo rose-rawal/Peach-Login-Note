@@ -1,5 +1,5 @@
 import { useContext, useEffect, useState } from "react";
-import { getAllUser, addUser } from "../api/users";
+import { getAllUser, addUser, login } from "../api/users";
 import context from "../components/context/maincontext";
 const useUser = () => {
   const [user, setUser] = useState([]);
@@ -16,7 +16,11 @@ const useUser = () => {
     return res;
   };
 
-  return { user, addUsers };
+  const loginUser = async (data) => {
+    const res = await login(data);
+    return res;
+  };
+  return { user, addUsers, loginUser };
 };
 
 export default useUser;

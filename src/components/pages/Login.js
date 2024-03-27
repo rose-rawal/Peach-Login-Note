@@ -4,13 +4,15 @@ import Button from "./formdetails/Button";
 import context from "../context/maincontext";
 import Error from "../pageinfo/Error";
 import useUser from "../../hooks/useUser";
+import axios from "axios";
+import axiosInstance from "../../api/axiosInstance";
 const Login = () => {
   const { setUsers, users, checkSignUp, checkLogin } = useContext(context);
   const [loguser, setLoguser] = useState({
     Name: "",
     Password: "",
   });
-  const { addUsers } = useUser();
+  const { addUsers, loginUser } = useUser();
   const [login, setLogin] = useState(true);
   const [error, setError] = useState({});
   const [user, setUser] = useState({
@@ -47,15 +49,24 @@ const Login = () => {
     });
   };
 
-  const handleLogin = (e) => {
+  const handleLogin = async (e) => {
     e.preventDefault();
+    try {
+      console.log(loguser.Name, loguser.Password);
+      const success = await axiosInstance.post("/login", {
+        Name: loguser.Name,
+        Password: loguser.Password,
+      });
 
-    const abc = checkLogin(loguser.Name, loguser.Password);
-
-    setError({ ...abc });
-    setTimeout(() => {
-      setError({});
-    }, 1000);
+      const abc = checkLogin(success.data, loguser.Name);
+      console.log(abc, "abc");
+      setError({ ...abc });
+      setTimeout(() => {
+        setError({});
+      }, 1000);
+    } catch (err) {
+      console.log(err, "err");
+    }
   };
 
   return (

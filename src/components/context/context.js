@@ -1,6 +1,7 @@
 import context from "./maincontext";
 import React from "react";
 import { useState } from "react";
+import useUser from "../../hooks/useUser";
 const Context = ({ children }) => {
   const [loggedIn, setLoggedIn] = useState(false);
   const [users, setUsers] = useState([]);
@@ -35,19 +36,16 @@ const Context = ({ children }) => {
     }
     return response;
   };
-  const checkLogin = (Name, Password) => {
+
+  const checkLogin = (resp, Name) => {
     const response = {};
     let flag = 0;
 
-    users.map((n) => {
-      if (n === null) {
-      } else if (n.Name === Name && n.Password === Password) {
-        flag = 1;
-        setLoggedIn(true);
-        setCurrentUser(n);
-      }
-      return 0;
-    });
+    if (resp.success) {
+      flag = 1;
+      setLoggedIn(true);
+      setCurrentUser(Name);
+    }
     if (flag === 0) {
       response.err = "No Account";
       response.text = "Name and Password Error";
