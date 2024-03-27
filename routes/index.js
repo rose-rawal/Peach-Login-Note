@@ -9,6 +9,24 @@ async function seeAllMessage(req, res) {
 }
 router.get("/allMessage", seeAllMessage);
 
+async function login(req, res) {
+  const { Name, Password } = req.body;
+  console.log(Name);
+  try {
+    const user = await userSchema.findOne({ Name });
+    if (!user) {
+      return res.status(400).json({ success: false });
+    }
+    const pass = await bcrypt.compare(Password, user.Password);
+    if (pass) {
+      return res.json({ success: true });
+    }
+  } catch (e) {
+    return res.status(400).json({ success: false });
+  }
+}
+router.post("/login", login);
+
 async function addMessage(req, res) {
   try {
     const { message, author } = req.body;
