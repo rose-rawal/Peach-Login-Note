@@ -4,15 +4,15 @@ import Button from "./formdetails/Button";
 import context from "../context/maincontext";
 import Error from "../pageinfo/Error";
 import useUser from "../../hooks/useUser";
-import axios from "axios";
+
 import axiosInstance from "../../api/axiosInstance";
 const Login = () => {
-  const { setUsers, users, checkSignUp, checkLogin } = useContext(context);
+  const { setUsers, checkSignUp, checkLogin } = useContext(context);
   const [loguser, setLoguser] = useState({
     Name: "",
     Password: "",
   });
-  const { addUsers, loginUser } = useUser();
+  const { addUsers } = useUser();
   const [login, setLogin] = useState(true);
   const [error, setError] = useState({});
   const [user, setUser] = useState({

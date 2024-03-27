@@ -9,7 +9,7 @@ const useUser = () => {
       setUser(res);
       setUsers(res);
     });
-  }, []);
+  }, [setUsers]);
 
   const addUsers = async (data) => {
     const res = await addUser(data);
