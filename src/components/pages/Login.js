@@ -52,14 +52,13 @@ const Login = () => {
   const handleLogin = async (e) => {
     e.preventDefault();
     try {
-      console.log(loguser.Name, loguser.Password);
       const success = await axiosInstance.post("/login", {
         Name: loguser.Name,
         Password: loguser.Password,
       });
 
       const abc = checkLogin(success.data, loguser.Name);
-      console.log(abc, "abc");
+
       setError({ ...abc });
       setTimeout(() => {
         setError({});
