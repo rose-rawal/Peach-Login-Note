@@ -53,9 +53,7 @@ async function addUser(req, res) {
     const { Name, Email, Password } = req.body;
     const user = userSchema.findOne({ Name });
     if (user) {
-      return res
-        .status(500)
-        .json({ message: "Already a user Name to be unique" });
+      return res.json({ message: "Already a user Name to be unique" });
     }
     const hash = await bcrypt.hash(Password, 10);
     const added = await userSchema.create({ Name, Email, Password: hash });
